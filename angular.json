@@ -33,7 +33,7 @@
           },
           "configurations": {
             "production": {
-              "baseHref": "./fm-angular/",
+              "baseHref": "/fm-angular/",
               "budgets": [
                 {
                   "type": "initial",
