@@ -1,0 +1,30 @@
+<mat-toolbar color="primary">
+  <div fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with menu icon"
+        fxHide.gt-sm
+        (click)="drawer.toggle()"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-drawer-container
+        class="example-container"
+        fxHide.gt-sm
+        autosize
+        ><mat-drawer #drawer class="example-sidenav" mode="side">
+          <p>Auto-resizing sidenav</p>
+          <p>Lorem, ipsum dolor sit amet consectetur.</p>
+          <button mat-raised-button>Toggle extra text</button>
+        </mat-drawer></mat-drawer-container
+      >
+      <span>Football manager {{ season }}</span>
+    </div>
+    <div fxHide.lt-md>
+      <button mat-button>History</button>
+      <button mat-button>Statistics</button>
+    </div>
+  </div>
+</mat-toolbar>
