@@ -10,17 +10,7 @@
       >
         <mat-icon>menu</mat-icon>
       </button>
-      <mat-drawer-container
-        class="example-container"
-        fxHide.gt-sm
-        autosize
-        ><mat-drawer #drawer class="example-sidenav" mode="side">
-          <p>Auto-resizing sidenav</p>
-          <p>Lorem, ipsum dolor sit amet consectetur.</p>
-          <button mat-raised-button>Toggle extra text</button>
-        </mat-drawer></mat-drawer-container
-      >
-      <span>Football manager {{ season }}</span>
+      <span>Football manager {{ currentGameState?.season }}</span>
     </div>
     <div fxHide.lt-md>
       <button mat-button>History</button>
@@ -28,3 +18,12 @@
     </div>
   </div>
 </mat-toolbar>
+<mat-drawer-container class="sidenav-container" fxHide.gt-sm autosize
+  ><mat-drawer #drawer class="sidenav" mode="side">
+    <div fxLayout="column" fxLayoutGap="20px">
+      <p>Auto-resizing sidenav</p>
+      <button mat-raised-button>History</button>
+      <button mat-raised-button>Statistics</button>
+    </div>
+  </mat-drawer></mat-drawer-container
+>

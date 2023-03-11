@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
+import { CurrentGameState } from './shared/models/current-game-state';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  season = '2029/30';
+  currentGameState: CurrentGameState = {
+    season: '2029/30',
+  };
 }
