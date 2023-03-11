@@ -1,0 +1,13 @@
+@use "src/custom-theme.scss" as football-manager-theme;
+@use "@angular/material" as mat;
+@import "custom-theme.scss";
+
+div {
+  background-color: mat.get-color-from-palette(
+    football-manager-theme.$football-manager-primary
+  );
+  padding: 10px;
+  text-align: center;
+  font-size: 12px;
+  color: white;
+}
