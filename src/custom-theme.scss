@@ -13,16 +13,16 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$football-manager-primary: mat.define-palette(mat.$indigo-palette);
+$football-manager-primary: mat.define-palette(mat.$pink-palette, 700);
 $football-manager-accent: mat.define-palette(
-  mat.$pink-palette,
-  A200,
+  mat.$teal-palette,
+  600,
   A100,
   A400
 );
 
 // The warn palette is optional (defaults to red).
-$football-manager-warn: mat.define-palette(mat.$red-palette);
+$football-manager-warn: mat.define-palette(mat.$indigo-palette, 800);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
