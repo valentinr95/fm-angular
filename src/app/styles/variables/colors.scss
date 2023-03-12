@@ -1,23 +1,11 @@
-// KEEP THIS FILE IN SYNC WITH colors.ts
 @use "@angular/material" as mat;
 @import "@angular/material/theming";
 
 $colors: (
   primary: (
-    50: #f9e2e3,
-    100: #efb7ba,
-    200: #e4888c,
-    300: #d9585e,
-    400: #d1343c,
-    500: #c91019,
-    600: #c30e16,
-    700: #bc0c12,
-    800: #b5090e,
-    900: #a90508,
-    A100: #ffd4d4,
-    A200: #ffa1a1,
-    A400: #ff6e6f,
-    A700: #ff5456,
+    100: #f67280,
+    500: #f67280,
+    700: #c06c84,
     contrast: (
       50: #707070,
       100: #707070,
@@ -35,21 +23,10 @@ $colors: (
       A700: #ffffff,
     ),
   ),
-  warning: (
-    50: #fceee0,
-    100: #f8d5b3,
-    200: #f3b980,
-    300: #ee9d4d,
-    400: #ea8826,
-    500: #e67300,
-    600: #e36b00,
-    700: #df6000,
-    800: #db5600,
-    900: #d54300,
-    A100: #fffdfc,
-    A200: #ffd7c9,
-    A400: #ffb096,
-    A700: #ff9d7d,
+  accent: (
+    100: #6c5b7b,
+    500: #6c5b7b,
+    700: #6c5b7b,
     contrast: (
       50: #707070,
       100: #707070,
@@ -67,22 +44,10 @@ $colors: (
       A700: #ffffff,
     ),
   ),
-  neutral: (
-    10: #f8f9fb,
-    50: #ecedee,
-    100: #ced2d5,
-    200: #aeb5b9,
-    300: #8e979c,
-    400: #758087,
-    500: #5d6a72,
-    600: #55626a,
-    700: #4b575f,
-    800: #414d55,
-    900: #303c42,
-    A100: #93d9ff,
-    A200: #60c7ff,
-    A400: #2db5ff,
-    A700: #14acff,
+  warn: (
+    100: #355c7d,
+    500: #355c7d,
+    700: #355c7d,
     contrast: (
       50: #707070,
       100: #707070,
@@ -103,6 +68,5 @@ $colors: (
 );
 
 $primary: mat-palette(map-get($colors, "primary"));
-$warning: mat-palette(map-get($colors, "warning"));
-$neutral: mat-palette(map-get($colors, "neutral"));
-$managerYellow: #ffe600;
+$accent: mat-palette(map-get($colors, "accent"));
+$warn: mat-palette(map-get($colors, "warn"));
