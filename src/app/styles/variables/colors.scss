@@ -1,5 +1,5 @@
 @use "@angular/material" as mat;
-@import "@angular/material/theming";
+@include mat.core();
 
 $colors: (
   primary: (
@@ -67,6 +67,6 @@ $colors: (
   ),
 );
 
-$primary: mat-palette(map-get($colors, "primary"));
-$accent: mat-palette(map-get($colors, "accent"));
-$warn: mat-palette(map-get($colors, "warn"));
+$primary: mat.define-palette(map-get($colors, "primary"));
+$accent: mat.define-palette(map-get($colors, "accent"));
+$warn: mat.define-palette(map-get($colors, "warn"));

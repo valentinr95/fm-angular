@@ -9,22 +9,20 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule } from '@angular/router';
 import { AppFooterComponent } from './app-footer/app-footer.component';
+import { BundesligaPlayersOverviewComponent } from './bundesliga-players-overview/bundesliga-players-overview.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AppHeaderComponent,
-    AppFooterComponent,
-  ],
+  declarations: [AppComponent, AppHeaderComponent, AppFooterComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     SharedModule,
     LayoutModule,
     MatListModule,
-    RouterModule
+    RouterModule,
+    BundesligaPlayersOverviewComponent,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
