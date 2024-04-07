@@ -1,11 +1,27 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { BundesligaPlayersOverviewComponent } from './bundesliga-players-overview/bundesliga-players-overview.component';
 
-const routes: Routes = [{ path: '', component: AppComponent}, {}];
+const routes: Routes = [
+  {
+    path: '',
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'bundesliga-overview',
+      },
+      {
+        path: 'bundesliga-overview',
+        component: BundesligaPlayersOverviewComponent,
+      },
+    ],
+  },
+  {
+    path: '**',
+    redirectTo: '',
+  },
+];
 
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
-})
-export class AppFmRoutingModule { }
+export const AppFmRoutingModule = RouterModule.forRoot(routes, {
+  preloadingStrategy: PreloadAllModules,
+});

@@ -10,6 +10,7 @@ import { MatListModule } from '@angular/material/list';
 import { RouterModule } from '@angular/router';
 import { AppFooterComponent } from './app-footer/app-footer.component';
 import { BundesligaPlayersOverviewComponent } from './bundesliga-players-overview/bundesliga-players-overview.component';
+import { AppFmRoutingModule } from './app-fm-routing.module';
 
 @NgModule({
   declarations: [AppComponent, AppHeaderComponent, AppFooterComponent],
@@ -21,6 +22,7 @@ import { BundesligaPlayersOverviewComponent } from './bundesliga-players-overvie
     MatListModule,
     RouterModule,
     BundesligaPlayersOverviewComponent,
+    AppFmRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
