@@ -4,6 +4,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { BundesligaPlayersContentComponent } from './bundesliga-players-content/bundesliga-players-content.component';
 import { bundesliga_data_2033 } from 'src/assets/testo-stats-bl-2033';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { catchError, map } from 'rxjs';
 
 @Component({
   selector: 'bundesliga-players-overview',
@@ -23,14 +24,15 @@ export class BundesligaPlayersOverviewComponent {
 
   constructor(private _http: HttpClient) {
     this.data = bundesliga_data_2033;
-    this._getCsvFromDrive()
-      .pipe()
-      .subscribe((data) => {
-        console.log(data);
-      });
+    this._getJsonFromDrive()
+      .pipe(
+        map((data) => console.log(data)),
+        catchError((error) => [console.log('error', error)])
+      )
+      .subscribe((data) => console.log(data));
   }
 
-  private _getCsvFromDrive() {
+  private _getJsonFromDrive() {
     return this._http.get(
       'https://drive.google.com/uc?export=download&id=1msBCPp82N2WySB2jQPJ6FiKu5rrJEQEV',
       {
