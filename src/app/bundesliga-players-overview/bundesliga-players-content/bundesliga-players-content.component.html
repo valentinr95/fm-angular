@@ -1,1 +1,34 @@
-<mat-table> </mat-table> {{ bundesligaData | json }}
+<div class="table-container">
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="name" sticky>
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+    <ng-container matColumnDef="verein">
+      <th mat-header-cell *matHeaderCellDef>Verein</th>
+      <td mat-cell *matCellDef="let element">{{ element.verein }}</td>
+    </ng-container>
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef>Position</th>
+      <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+    </ng-container>
+    <ng-container matColumnDef="alter">
+      <th mat-header-cell *matHeaderCellDef>Alter</th>
+      <td mat-cell *matCellDef="let element">{{ element.alter }}</td>
+    </ng-container>
+    <ng-container matColumnDef="gehalt">
+      <th mat-header-cell *matHeaderCellDef>Gehalt (Wöchentlich)</th>
+      <td mat-cell *matCellDef="let element">{{ element.gehalt }}</td>
+    </ng-container>
+    <ng-container matColumnDef="wert">
+      <th mat-header-cell *matHeaderCellDef>Marktwert</th>
+      <td mat-cell *matCellDef="let element">{{ element.wert }}</td>
+    </ng-container>
+    <ng-container matColumnDef="endet">
+      <th mat-header-cell *matHeaderCellDef>Vertragsende</th>
+      <td mat-cell *matCellDef="let element">{{ element.endet }}</td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

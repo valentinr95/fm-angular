@@ -24,12 +24,12 @@ export class BundesligaPlayersOverviewComponent {
 
   constructor(private _http: HttpClient) {
     this.data = bundesliga_data_2033;
-    this._getJsonFromDrive()
+    /*     this._getJsonFromDrive()
       .pipe(
         map((data) => console.log(data)),
         catchError((error) => [console.log('error', error)])
       )
-      .subscribe((data) => console.log(data));
+      .subscribe((data) => console.log(data)); */
   }
 
   private _getJsonFromDrive() {
