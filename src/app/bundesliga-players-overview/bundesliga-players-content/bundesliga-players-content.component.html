@@ -1,34 +1,58 @@
 <div class="table-container">
-  <table mat-table [dataSource]="dataSource">
+  <table mat-table [dataSource]="dataSource" matSort>
     <ng-container matColumnDef="name" sticky>
-      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
       <td mat-cell *matCellDef="let element">{{ element.name }}</td>
     </ng-container>
     <ng-container matColumnDef="verein">
-      <th mat-header-cell *matHeaderCellDef>Verein</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Verein</th>
       <td mat-cell *matCellDef="let element">{{ element.verein }}</td>
     </ng-container>
     <ng-container matColumnDef="position">
-      <th mat-header-cell *matHeaderCellDef>Position</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Position</th>
       <td mat-cell *matCellDef="let element">{{ element.position }}</td>
     </ng-container>
     <ng-container matColumnDef="alter">
-      <th mat-header-cell *matHeaderCellDef>Alter</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Alter</th>
       <td mat-cell *matCellDef="let element">{{ element.alter }}</td>
     </ng-container>
     <ng-container matColumnDef="gehalt">
-      <th mat-header-cell *matHeaderCellDef>Gehalt (Wöchentlich)</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Gehalt (Wöchentlich)
+      </th>
       <td mat-cell *matCellDef="let element">{{ element.gehalt }}</td>
     </ng-container>
     <ng-container matColumnDef="wert">
-      <th mat-header-cell *matHeaderCellDef>Marktwert</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Marktwert</th>
       <td mat-cell *matCellDef="let element">{{ element.wert }}</td>
     </ng-container>
     <ng-container matColumnDef="endet">
-      <th mat-header-cell *matHeaderCellDef>Vertragsende</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Vertragsende</th>
       <td mat-cell *matCellDef="let element">{{ element.endet }}</td>
+    </ng-container>
+    <ng-container matColumnDef="toreGes">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Tore (Karriere)</th>
+      <td mat-cell *matCellDef="let element">{{ element.toreGes }}</td>
+    </ng-container>
+    <ng-container matColumnDef="gesEins">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Einsätze (Karriere)
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.gesEins }}</td>
+    </ng-container>
+    <ng-container matColumnDef="lsp">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Länderspiele</th>
+      <td mat-cell *matCellDef="let element">{{ element.lsp }}</td>
+    </ng-container>
+    <ng-container matColumnDef="lsp_tore">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Länderspieltore</th>
+      <td mat-cell *matCellDef="let element">{{ element.lsp_tore }}</td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 </div>
+<mat-paginator
+  [pageSizeOptions]="[5, 10, 25, 100]"
+  aria-label="Select page of users"
+></mat-paginator>

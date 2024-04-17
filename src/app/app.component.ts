@@ -7,6 +7,6 @@ import { CurrentGameState } from './shared/models/current-game-state';
 })
 export class AppComponent {
   currentGameState: CurrentGameState = {
-    season: '2029/30',
+    season: '2033/34',
   };
 }
