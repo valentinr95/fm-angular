@@ -38,26 +38,26 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header>
         Einsätze (Karriere)
       </th>
-      <td mat-cell *matCellDef="let element">{{ element.GesEins }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.GesEins || "0" }}</td>
     </ng-container>
     <ng-container matColumnDef="ToreGes">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Tore (Karriere)</th>
-      <td mat-cell *matCellDef="let element">{{ element.ToreGes }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.ToreGes || "0" }}</td>
     </ng-container>
     <ng-container matColumnDef="Lsp">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Länderspiele</th>
-      <td mat-cell *matCellDef="let element">{{ element.Lsp }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.Lsp || "0" }}</td>
     </ng-container>
     <ng-container matColumnDef="Tore">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Länderspieltore</th>
-      <td mat-cell *matCellDef="let element">{{ element.Tore }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.Tore || "0" }}</td>
     </ng-container>
     <ng-container matColumnDef="Transfereinkommen">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>
         Transfersummen (Gesamt)
       </th>
       <td mat-cell *matCellDef="let element">
-        {{ element.Transfereinkommen }}
+        {{ element.Transfereinkommen || "0" }}
       </td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
