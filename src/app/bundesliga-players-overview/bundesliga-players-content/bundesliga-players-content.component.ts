@@ -28,17 +28,19 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 export class BundesligaPlayersContentComponent {
   dataSource = new MatTableDataSource<any>();
   displayedColumns: string[] = [
-    'name',
-    'verein',
-    'position',
-    'alter',
-    'gehalt',
-    'wert',
-    'endet',
-    'toreGes',
-    'gesEins',
-    'lsp',
-    'lsp_tore',
+    'Name',
+    'Nationalitaet',
+    'Verein',
+    'Position',
+    'Alter',
+    'Gehalt',
+    'Endet',
+    'Wert',
+    'GesEins',
+    'ToreGes',
+    'Lsp',
+    'Tore',
+    'Transfereinkommen',
   ];
 
   @ViewChild(MatPaginator) set matPaginator(paginator: MatPaginator) {
