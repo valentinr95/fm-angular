@@ -1,3 +1,24 @@
+<mat-form-field class="margin no-margin-bottom">
+  <mat-label>Filter</mat-label>
+  <input
+    matInput
+    (keyup)="applyFilter($event)"
+    placeholder="zB: Willem Geubbels"
+    #input
+  />
+</mat-form-field>
+<mat-form-field>
+  <mat-label>Nationalität</mat-label>
+  <mat-select (selectionChange)="filterData($event)">
+    <mat-option
+      *ngFor="let nationalitaet of filteredData | uniquePipe : 'Nationalitaet'"
+      [value]="nationalitaet"
+    >
+      {{ nationalitaet }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
 <div class="table-container">
   <table mat-table [dataSource]="dataSource" matSort>
     <ng-container matColumnDef="Name" sticky>

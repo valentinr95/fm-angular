@@ -8,9 +8,14 @@ import {
   ViewChild,
 } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatOptionModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatSelectModule } from '@angular/material/select';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { UniquePipeModule } from 'src/app/shared';
 import { DBLSeason } from 'src/assets/interfaces/dbl-season';
 
 @Component({
@@ -25,6 +30,11 @@ import { DBLSeason } from 'src/assets/interfaces/dbl-season';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatOptionModule,
+    MatSelectModule,
+    UniquePipeModule,
   ],
 })
 export class BundesligaPlayersContentComponent {
@@ -66,8 +76,10 @@ export class BundesligaPlayersContentComponent {
     this.dataSource = new MatTableDataSource(data);
     this.dataSource.paginator = this._paginator;
     this.dataSource.sort = this._sort;
+    this.filteredData = data;
   }
 
+  filteredData: DBLSeason[] = [];
   private _paginator: MatPaginator;
   private _sort: MatSort;
 
@@ -89,6 +101,17 @@ export class BundesligaPlayersContentComponent {
     }
 
     return _isNumberValue(value) ? Number(value) : value;
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    console.log(filterValue);
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  filterData(event: any) {
+    const filterValue = event.value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   private _returnWeeklyWage(wageString: string) {
