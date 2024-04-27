@@ -1,23 +1,68 @@
-<mat-form-field class="margin no-margin-bottom">
-  <mat-label>Filter</mat-label>
-  <input
-    matInput
-    (keyup)="applyFilter($event)"
-    placeholder="zB: Willem Geubbels"
-    #input
-  />
-</mat-form-field>
-<mat-form-field>
-  <mat-label>Nationalität</mat-label>
-  <mat-select (selectionChange)="filterData($event)">
-    <mat-option
-      *ngFor="let nationalitaet of filteredData | uniquePipe : 'Nationalitaet'"
-      [value]="nationalitaet"
+<div
+  fxLayout.gt-sm="row"
+  fxLayout.lt-md="column"
+  [fxLayoutGap]="'10px'"
+  class="margin no-margin-bottom"
+  [formGroup]="filterForm"
+>
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="zB: Willem Geubbels"
+      formControlName="textInput"
+      #input
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Nationalität</mat-label>
+    <mat-select
+      (selectionChange)="filterData($event)"
+      formControlName="nationalitaetenInput"
     >
-      {{ nationalitaet }}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
+      <mat-option
+        *ngFor="
+          let nationalitaet of filteredData | uniquePipe : 'Nationalitaet'
+        "
+        [value]="nationalitaet"
+      >
+        {{ nationalitaet }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Verein</mat-label>
+    <mat-select
+      (selectionChange)="filterData($event)"
+      formControlName="vereinInput"
+    >
+      <mat-option
+        *ngFor="let verein of filteredData | uniquePipe : 'Verein'"
+        [value]="verein"
+      >
+        {{ verein }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Endet</mat-label>
+    <mat-select
+      (selectionChange)="filterData($event)"
+      formControlName="vertragsEndenInput"
+    >
+      <mat-option
+        *ngFor="let vertragsende of filteredData | uniquePipe : 'Endet'"
+        [value]="vertragsende"
+      >
+        {{ vertragsende }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-fab color="warn" (click)="resetFilters()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
 
 <div class="table-container">
   <table mat-table [dataSource]="dataSource" matSort>

@@ -8,8 +8,11 @@ import {
   ViewChild,
 } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 import { MatOptionModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
@@ -35,6 +38,9 @@ import { DBLSeason } from 'src/assets/interfaces/dbl-season';
     MatOptionModule,
     MatSelectModule,
     UniquePipeModule,
+    MatButtonModule,
+    MatIconModule,
+    ReactiveFormsModule,
   ],
 })
 export class BundesligaPlayersContentComponent {
@@ -80,8 +86,22 @@ export class BundesligaPlayersContentComponent {
   }
 
   filteredData: DBLSeason[] = [];
+  filterForm: FormGroup;
+  textInput: FormControl;
+  nationalitaetenInput: FormControl;
+  vereinInput: FormControl;
+  vertragsEndenInput: FormControl;
   private _paginator: MatPaginator;
   private _sort: MatSort;
+
+  constructor() {
+    this.filterForm = new FormGroup({
+      textInput: new FormControl(''),
+      nationalitaetenInput: new FormControl(''),
+      vereinInput: new FormControl(''),
+      vertragsEndenInput: new FormControl(''),
+    });
+  }
 
   initSortingDataAccessor(element: any, sortHeaderId: string): string | number {
     let value: any = element[sortHeaderId];
@@ -105,7 +125,6 @@ export class BundesligaPlayersContentComponent {
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    console.log(filterValue);
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
@@ -135,5 +154,10 @@ export class BundesligaPlayersContentComponent {
       multiplier === 'k' ? 1000 : multiplier === 'm' ? 1000000 : 1;
 
     return numericPart * multiplierValue;
+  }
+
+  resetFilters() {
+    this.dataSource.filter = '';
+    this.filterForm.reset();
   }
 }

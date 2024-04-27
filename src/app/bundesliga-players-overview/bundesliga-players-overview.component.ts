@@ -6,6 +6,7 @@ import { bundesliga_data_2033 } from 'src/assets/data/testo-stats-bl-2033';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { catchError, map } from 'rxjs';
 import { DBLSeason } from 'src/assets/interfaces/dbl-season';
+import axios from 'axios';
 
 @Component({
   selector: 'bundesliga-players-overview',
@@ -35,7 +36,7 @@ export class BundesligaPlayersOverviewComponent {
 
   private _getJsonFromDrive() {
     return this._http.get(
-      'https://drive.google.com/uc?export=download&id=1msBCPp82N2WySB2jQPJ6FiKu5rrJEQEV',
+      'https://raw.githubusercontent.com/AdrianoAE/Palfinger.Connected.Geofencing/main/Directory.Build.props?token=GHSAT0AAAAAACRBMOENBMPVEMMCUHRHZ424ZRGIKAQ',
       {
         responseType: 'json',
       }
