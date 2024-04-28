@@ -2,11 +2,9 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BundesligaPlayersContentComponent } from './bundesliga-players-content/bundesliga-players-content.component';
-import { bundesliga_data_2033 } from 'src/assets/data/testo-stats-bl-2033';
+import { bundesliga_data_2033 } from 'src/assets/data/bl-players-2033';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { catchError, map } from 'rxjs';
-import { DBLSeason } from 'src/assets/interfaces/dbl-season';
-import axios from 'axios';
+import { Spieler } from 'src/assets/interfaces/dbl-spieler';
 
 @Component({
   selector: 'bundesliga-players-overview',
@@ -22,7 +20,7 @@ import axios from 'axios';
   ],
 })
 export class BundesligaPlayersOverviewComponent {
-  data: DBLSeason[];
+  data: Spieler[];
 
   constructor(private _http: HttpClient) {
     this.data = bundesliga_data_2033;

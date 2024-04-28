@@ -1,15 +1,9 @@
 export interface DBLSeason {
-  Name: string;
-  Nationalitaet: string;
-  Verein: string;
-  Position: string;
-  Alter: number;
-  Gehalt: string;
-  Endet: string;
-  Wert: string;
-  GesEins: number;
-  ToreGes: string;
-  Lsp: number;
-  Tore: string;
-  Transfereinkommen: string;
+  year: number;
+  teams: [Team, Team, Team];
+}
+
+interface Team {
+  name: 'SC Freiburg' | 'SV Werder' | 'FC Augsburg' | 'SV Darmstadt';
+  position: number;
 }

@@ -22,11 +22,11 @@ import { UniquePipeModule } from 'src/app/shared';
 import { Spieler } from 'src/assets/interfaces/dbl-spieler';
 
 @Component({
-  selector: 'bundesliga-players-content',
-  templateUrl: './bundesliga-players-content.component.html',
+  selector: 'bundesliga-seasons-content',
+  templateUrl: './bundesliga-seasons-content.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  styleUrls: ['./bundesliga-players-content.component.scss'],
+  styleUrls: ['./bundesliga-seasons-content.component.scss'],
   imports: [
     CommonModule,
     FlexLayoutModule,

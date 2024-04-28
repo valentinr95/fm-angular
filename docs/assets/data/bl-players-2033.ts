@@ -1,4 +1,4 @@
-import { DBLSeason } from '../interfaces/dbl-season';
+import { Spieler } from '../interfaces/dbl-spieler';
 
 export const bundesliga_data_2033 = [
   {
@@ -10531,4 +10531,4 @@ export const bundesliga_data_2033 = [
     Tore: '-',
     Transfereinkommen: '€0',
   },
-] as DBLSeason[];
+] as Spieler[];
